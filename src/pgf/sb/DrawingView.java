@@ -17,11 +17,13 @@ public class DrawingView extends View {
 	private Canvas drawCanvas;
 	private Bitmap canvasBitmap;
 	private int paintColor = 0xffff0000;
-	private float brushSize = (float) 10.0;
+	private int dotColor = 0xff000000;
+	private float brushSize = (float) 20.0;
 	// drawing and canvas paint
-	private Paint drawPaint, canvasPaint;
+	private Paint drawPaint, canvasPaint, dotPaint;
 	// drawing path
 	private Path drawPath;
+	private float[] dots = {25, 66, 343, 555, 432, 767, 443, 999}; 
 	
 	// constructors
 	public DrawingView(Context context, AttributeSet attrs) {
@@ -43,6 +45,15 @@ public class DrawingView extends View {
 
 		canvasPaint = new Paint(Paint.DITHER_FLAG);
 
+		// configure the style for the dots with dotPaint
+		dotPaint = new Paint();
+		dotPaint.setColor(dotColor);
+		dotPaint.setStrokeWidth(brushSize*2);
+		dotPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+		drawPaint.setStrokeJoin(Paint.Join.ROUND);
+		drawPaint.setStrokeCap(Paint.Cap.ROUND);
+		
+		
 	}
 
 	@Override
@@ -58,7 +69,12 @@ public class DrawingView extends View {
 	protected void onDraw(Canvas canvas) {
 		// draw DrawingView
 		canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
+		canvas.drawCircle(dots[0], dots[1], 30, dotPaint);
+		canvas.drawCircle(dots[2], dots[3], 30, dotPaint);
+		canvas.drawCircle(dots[4], dots[5], 30, dotPaint);
+		canvas.drawCircle(dots[6], dots[7], 30, dotPaint);
 		canvas.drawPath(drawPath, drawPaint);
+		
 	}
 
 	@Override
