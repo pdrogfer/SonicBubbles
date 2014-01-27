@@ -28,10 +28,11 @@
         android:background="#FFFFFFFF" />
 
        <!-- buttons on the lower part of the screen -->
-<Button 
+
+<Button
     android:id="@+id/btnNewGame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="NewGame"/>
+    android:text="NewGame" />
 
 </LinearLayout>

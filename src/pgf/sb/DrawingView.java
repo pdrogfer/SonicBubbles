@@ -22,7 +22,7 @@ public class DrawingView extends View {
 	private Paint drawPaint, canvasPaint;
 	// drawing path
 	private Path drawPath;
-
+	
 	// constructors
 	public DrawingView(Context context, AttributeSet attrs) {
 		super(context, attrs);
